@@ -90,12 +90,12 @@ Here are a list of supported options for @sendgrid_enable@ and @sendgrid_disable
 * :ganalytics
 * :gravatar
 * :subscriptiontrack
-** Call sendgrid_subscriptiontrack_text(:html => 'Unsubscribe <% Here %>', :plain => 'Unsubscribe Here: <% %>') to set a custom format for html/plain or both.
-** OR Call sendgrid_subscriptiontrack_text(:replace => '.unsubscribe_link.') to replace all occurrences of .unsubscribe_link. with the url of the unsubscribe link
+** Call @sendgrid_subscriptiontrack_text(:html => 'Unsubscribe <% Here %>', :plain => 'Unsubscribe Here: <% %>')@ to set a custom format for html/plain or both.
+** OR Call @sendgrid_subscriptiontrack_text(:replace => '.unsubscribe_link.')@ to replace all occurrences of ".unsubscribe_link." with the url of the unsubscribe link
 * :footer
-** Call sendgrid_footer_text(:html => 'My HTML footer rocks!', :plain => 'My plain text footer is so-so.') to set custom footer text for html/plain or both.
+** Call @sendgrid_footer_text(:html => 'My HTML footer rocks!', :plain => 'My plain text footer is so-so.')@ to set custom footer text for html/plain or both.
 * :spamcheck
-** Call sendgrid_spamcheck_maxscore(4.5) to set a custom SpamAssassin threshold at which SendGrid drops emails (default value is 5.0).
+** Call @sendgrid_spamcheck_maxscore(4.5)@ to set a custom SpamAssassin threshold at which SendGrid drops emails (default value is 5.0).
   
 For further explanation see "SendGrid's wiki page on filters.":http://wiki.sendgrid.com/doku.php?id=filters
 
@@ -109,7 +109,7 @@ One issue that arises when delivering multiple emails at once is custom content.
 
 @sendgrid_substitue "<subme>", ["sub text for 1st recipient", "sub text for 2nd recipient", "sub text for 3rd recipient", ...]@
 
-In this example, if <code><subme></code> is in the body of your email SendGrid will automatically substitute it for the string corresponding the recipient being delivered to. NOTE: You should ensure that the length of the substitution array is equal to the length of the recipients array.
+In this example, if @<subme>@ is in the body of your email SendGrid will automatically substitute it for the string corresponding the recipient being delivered to. NOTE: You should ensure that the length of the substitution array is equal to the length of the recipients array.
 
 h3. TODO
 
