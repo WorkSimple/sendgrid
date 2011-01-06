@@ -25,6 +25,7 @@ Next, update your application's SMTP settings to use SendGrid's servers (see "Se
 
 Example:
 
+<pre>
 ActionMailer::Base.smtp_settings = {
   :address => "smtp.sendgrid.net",
   :port => 25,
@@ -33,7 +34,7 @@ ActionMailer::Base.smtp_settings = {
   :user_name => "sendgrid_username@mysite.com",
   :password => "sendgrid_password"
 }
-
+</pre>
 
 h3. Using the sendgrid Gem
 
