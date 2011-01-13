@@ -10,7 +10,10 @@ module SendGrid
     :subscriptiontrack,
     :footer,
     :spamcheck,
-    :bypass_list_management
+    :bypass_list_management,
+    :template,
+    :domainkeys,
+    :twitter
   ]
   
   def self.included(base)
