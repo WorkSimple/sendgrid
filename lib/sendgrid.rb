@@ -124,17 +124,16 @@ module SendGrid
   end
 
   # Sets the custom X-SMTPAPI header after creating the email but before delivery
-  def mail(method_name, *parameters)
+  def mail(headers={}, &block)
+    super
     if @sg_substitutions && !@sg_substitutions.empty?
       @sg_substitutions.each do |find, replace|
         raise ArgumentError.new("Array for #{find} is not the same size as the recipient array") if replace.size != @sg_recipients.size
       end
     end
-    puts "SendGrid X-SMTPAPI: #{sendgrid_json_headers(mail)}" if Object.const_defined?("SENDGRID_DEBUG_OUTPUT") && SENDGRID_DEBUG_OUTPUT
-    headers['X-SMTPAPI'] = sendgrid_json_headers(mail)
-    super
+    puts "SendGrid X-SMTPAPI: #{sendgrid_json_headers(message)}" if Object.const_defined?("SENDGRID_DEBUG_OUTPUT") && SENDGRID_DEBUG_OUTPUT
+    self.headers['X-SMTPAPI'] = sendgrid_json_headers(message)
   end
-
   private
 
   # Take all of the options and turn it into the json format that SendGrid expects
